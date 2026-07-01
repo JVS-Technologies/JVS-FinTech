@@ -81,7 +81,10 @@ From core bookkeeping and multi-company database isolation to dynamic reporting 
     *   **🏦 Bank Reconciliation:** Reconcile cash/bank book ledgers with bank statements. Supports CSV statement uploads, automated matching within standard clearance windows, tracking bank ledger balance vs. actual bank balance, and batch-applying clearance dates.
 
 ### ⚙️ **6. Utilities & Compliance**
+*   **🔄 Over-The-Air (OTA) Auto Updates:** Seamless background application updates via GitHub Releases using `electron-updater`, ensuring you always have the latest features and patches without manual re-installation.
+*   **🔍 Command Palette (Global Search):** A unified search interface (triggered via hotkey) to instantly navigate between pages, find specific ledgers, or access quick actions across the app.
 *   **☁️ Google Drive Cloud Sync (Desktop Only):** Securely back up local SQLite databases to personal Google Drive storage. Supports automatic background backups, custom Google Cloud console OAuth client credentials integration (Client ID/Secret override), and full synchronization on app close with an overlay screen.
+*   **📂 Configurable Export Paths:** Custom directory configuration for saving exported PDFs, Excel sheets, and backup files with automated settings migration across versions.
 *   **📦 Batch & Expiry Tracking:** Support for batch numbers, manufacture dates, and expiry dates (linked directly to products/services in stock).
 *   **📋 EULA Agreement Block:** Integrated End-User License Agreement (EULA) pop-up that blocks application actions until terms are accepted, persisting consent securely in the global SQLite settings table.
 *   **📥 Bulk Import Engine (CSV / Excel / Tally XML):** Upload massive databases of Ledgers, Stock Groups, Stock Items, Opening Balances, Account Groups, and Units of Measure using customizable templates with client-side syntax checks. Features native support for importing **Tally XML Master exports** (with UTF-16LE compatibility) for seamless ledger and inventory migrations.
