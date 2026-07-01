@@ -114,84 +114,10 @@ From core bookkeeping and multi-company database isolation to dynamic reporting 
 
 ## 🧑‍💻 **Installation & Setup**
 
-### **Prerequisites**
-Make sure you have [Node.js](https://nodejs.org/) (v18+) and [npm](https://www.npmjs.com/) installed.
-
-### **1. Clone & Install**
-```bash
-# Clone the repository
-git clone https://github.com/JV-Vigneesh/JVS-AccounTally.git
-
-# Navigate into the project folder
-cd JVS-AccounTally
-
-# Install project dependencies
-npm install
-```
-
-### **2. Development Mode**
-
-#### **Option A: Run Web Version (Browser)**
-Starts a fast development server.
-```bash
-npm run dev
-```
-Open [http://localhost:8080](http://localhost:8080) to access the app in your browser.
-
-#### **Option B: Run Desktop Version (Electron)**
-Runs the application inside the native Electron window with direct file-system capabilities.
-```bash
-npm run electron:dev
-```
-
-### **3. Production Build & Packaging**
-
-To compile the React bundle and build the Electron desktop installer (`.exe` for Windows, executable for target OS):
-
-```bash
-# Build & package distribution binaries
-npm run dist
-```
-*   The web distribution files will be compiled under `dist/`.
-*   The packaged installers (e.g., Setup `.exe` files) will be located inside the `out/` or `dist/` directory as configured in `electron-builder.json`.
-
----
-
-## 📂 **Project Directory Structure**
-
-```
-JVS-AccounTally/
-├── electron/                 # Electron main process, preload, and PDF rendering service
-│   ├── main.cjs              # Electron entrypoint & IPC communication
-│   ├── preload.cjs           # Secure renderer API bindings (contextBridge)
-│   └── pdf-service.cjs       # Playwright integration for PDF generation
-├── src/                      # Frontend source directory
-│   ├── components/           # Common layout elements and shadcn/ui primitives
-│   ├── contexts/             # Company, Theme, and Database state contexts
-│   ├── core/                 # Relational DB initialization, schemas, and queries
-│   │   ├── database/         # SQLite schemas & operations
-│   │   └── posting-engine/   # Double-entry debit/credit ledger calculations
-│   ├── features/             # Business logic modules (inventory, transactions, vouchers)
-│   ├── hooks/                # Common stateful hooks
-│   ├── pages/                # High-level route views (Dashboard, Invoices, Reports, etc.)
-│   │   ├── masters/          # Accounting & Stock configuration dashboards
-│   │   ├── transactions/     # Accounting Voucher creation forms
-│   │   ├── reports/          # Financial report modules (Balance Sheet, P&L, GST)
-│   │   └── utilities/        # Audit Logs, Bulk Import, Data Integrity checkers
-│   ├── shared/               # Utility functions, formatting, constants
-│   └── types/                # TypeScript interfaces and type definitions
-├── index.html                # App entrypoint
-├── package.json              # Script configurations and dependency definitions
-└── tsconfig.json             # TypeScript configuration options
-```
-
----
-
-## 🗺️ **Roadmap & Future Work**
-
-*   **📱 Multi-Platform Sync:** Cloud-assisted syncing between multiple client devices.
-*   **🔗 Bank Feeds Integration:** Auto-import transaction statements from major banking systems.
-*   **🚀 Automated Tax Filing:** Direct e-filing pipeline matching localized compliance guidelines.
+1. Scroll down to the **Assets** section below.
+2. Download the `JVS FinTech-Setup-12.0.0.exe` file.
+3. Double-click the downloaded file to install the application on your Windows machine.
+4. The app will automatically launch and guide you through creating your first Company!
 
 ---
 
