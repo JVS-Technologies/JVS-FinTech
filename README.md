@@ -1,5 +1,6 @@
 # 🚀 **JVS FinTech** 💼
 
+[![Version](https://img.shields.io/badge/Version-12.0.4-success)]()
 [![React](https://img.shields.io/badge/React-19.0-blue?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
@@ -44,6 +45,7 @@ From core bookkeeping and multi-company database isolation to dynamic reporting 
 *   **Ledgers:** Build custom accounts for parties, sales/purchase books, bank accounts, tax brackets, and expenses.
 *   **Voucher Types:** Configure pre-defined and custom voucher types for different entry channels.
 *   **Inventory Masters:** Stock Groups, Units of Measure (e.g., Nos, Kg, Pcs), and Stock Items (products and services with manual/automatic tracking).
+*   **✨ Auto-Creation:** Seamlessly create new ledgers and products on the fly directly from the transaction/voucher screens without losing your context.
 *   **✏️ Bulk Operations Support:** Toggles bulk modes for ledgers, products, groups, and units, enabling checkbox multi-selection for fast inline bulk edits and multi-item deletion.
 
 ### 💸 **4. Transactions Suite**
@@ -71,7 +73,7 @@ From core bookkeeping and multi-company database isolation to dynamic reporting 
     *   **Sales/Purchase Registers:** Chronological ledger summaries of sales and purchases.
     *   **Cash & Bank Books:** Isolated liquid cash flow trackers.
 *   **Sales Analysis & GST:**
-    *   **GST Compliance Dashboard:** Outward sales tax mapping for CGST, SGST, and IGST with one-click **GSTR-1 & GSTR-3B JSON exports** formatted exactly for the official government e-filing portal.
+    *   **GST Compliance Dashboard:** Outward sales tax mapping for CGST, SGST, and IGST with one-click **GSTR-1 & GSTR-3B JSON exports** formatted exactly for the official government e-filing portal (incorporating recent strict validation and mapping fixes).
     *   **🧾 E-Invoice Export:** Dynamic generation of government-compliant E-Invoice JSON files (v1.1) containing billing details, itemized tax computations, and seller/buyer info for direct schema validation.
     *   **⚖️ GST Anomaly Scoring Engine:** Rules-based tax auditing system (assessing dual taxation, CGST/SGST asymmetries, state mismatches, invalid GSTIN formats, and missing registers) that generates transaction-level compliance scores (0-100%) and overall health ratings.
     *   **HSN/SAC Summaries:** Quantitative transaction aggregates grouped by HSN/SAC codes for simple product tax categorization.
@@ -114,16 +116,87 @@ From core bookkeeping and multi-company database isolation to dynamic reporting 
 
 ## 🧑‍💻 **Installation & Setup**
 
-1. Scroll down to the **Assets** section below.
-2. Download the `JVS FinTech-Setup-12.0.0.exe` file.
-3. Double-click the downloaded file to install the application on your Windows machine.
-4. The app will automatically launch and guide you through creating your first Company!
+### **Prerequisites**
+Make sure you have [Node.js](https://nodejs.org/) (v18+) and [npm](https://www.npmjs.com/) installed.
+
+### **1. Clone & Install**
+```bash
+# Clone the repository
+git clone https://github.com/JV-Vigneesh/JVS-AccounTally.git
+
+# Navigate into the project folder
+cd JVS-AccounTally
+
+# Install project dependencies
+npm install
+```
+
+### **2. Development Mode**
+
+#### **Option A: Run Web Version (Browser)**
+Starts a fast development server.
+```bash
+npm run dev
+```
+Open [http://localhost:8080](http://localhost:8080) to access the app in your browser.
+
+#### **Option B: Run Desktop Version (Electron)**
+Runs the application inside the native Electron window with direct file-system capabilities.
+```bash
+npm run electron:dev
+```
+
+### **3. Production Build & Packaging**
+
+To compile the React bundle and build the Electron desktop installer (`.exe` for Windows, executable for target OS):
+
+```bash
+# Build & package distribution binaries
+npm run dist
+```
+*   The web distribution files will be compiled under `dist/`.
+*   The packaged installers (e.g., Setup `.exe` files) will be located inside the `out/` or `dist/` directory as configured in `electron-builder.json`.
+
+---
+
+## 📂 **Project Directory Structure**
+
+```
+JVS-AccounTally/
+├── electron/                 # Electron main process, preload, and PDF rendering service
+│   ├── main.cjs              # Electron entrypoint & IPC communication
+│   ├── preload.cjs           # Secure renderer API bindings (contextBridge)
+│   └── pdf-service.cjs       # Playwright integration for PDF generation
+├── src/                      # Frontend source directory
+│   ├── components/           # Common layout elements and shadcn/ui primitives
+│   ├── contexts/             # Company, Theme, and Database state contexts
+│   ├── core/                 # Relational DB initialization, schemas, and queries
+│   │   ├── database/         # SQLite schemas & operations
+│   │   └── posting-engine/   # Double-entry debit/credit ledger calculations
+│   ├── features/             # Business logic modules (inventory, transactions, vouchers)
+│   ├── hooks/                # Common stateful hooks
+│   ├── pages/                # High-level route views (Dashboard, Invoices, Reports, etc.)
+│   │   ├── masters/          # Accounting & Stock configuration dashboards
+│   │   ├── transactions/     # Accounting Voucher creation forms
+│   │   ├── reports/          # Financial report modules (Balance Sheet, P&L, GST)
+│   │   └── utilities/        # Audit Logs, Bulk Import, Data Integrity checkers
+│   ├── shared/               # Utility functions, formatting, constants
+│   └── types/                # TypeScript interfaces and type definitions
+├── index.html                # App entrypoint
+├── package.json              # Script configurations and dependency definitions
+└── tsconfig.json             # TypeScript configuration options
+```
+
+---
+
+## 🗺️ **Roadmap & Future Work**
+
+*   **📱 Multi-Platform Sync:** Cloud-assisted syncing between multiple client devices.
+*   **🔗 Bank Feeds Integration:** Auto-import transaction statements from major banking systems.
+*   **🚀 Automated Tax Filing:** Direct e-filing pipeline matching localized compliance guidelines.
 
 ---
 
 ## 📜 **License**
 
-Copyright (c) 2026 | JV Vigneesh
-All Rights Reserved.
-
-Unauthorized copying of this file, via any medium, is strictly prohibited.
+This project is licensed under the End User License Agreement (EULA) - see the [license.rtf](public/license.rtf) file for details.
