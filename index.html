@@ -14,6 +14,8 @@
         content="Professional offline-first accounting software with double-entry bookkeeping, GST compliance, and dynamic reporting.">
     <meta property="og:image" content="assets/images/hero-dashboard.png">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jv-vigneesh.github.io/JVS-FinTech/">
+    <link rel="canonical" href="https://jv-vigneesh.github.io/JVS-FinTech/">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
@@ -45,7 +47,8 @@
                     <span class="logo-text">FinTech</span>
                 </a>
 
-                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu"
+                    aria-controls="nav-menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -57,6 +60,7 @@
                     <li><a href="#architecture" class="nav-link">Architecture</a></li>
                     <li><a href="#tech-stack" class="nav-link">Stack</a></li>
                     <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                    <li><a href="#support" class="nav-link">Support</a></li>
 
                     <li><a href="#download" class="nav-link btn-nav-cta">
                             <i class='bx bx-download'></i> Download
@@ -74,7 +78,7 @@
             <div class="hero-text">
                 <div class="hero-badge reveal">
                     <span class="badge-dot"></span>
-                    Version 12.0 — Now Available
+                    Version <span data-release-version>Checking latest version...</span> — Now Available
                 </div>
                 <!-- FIXED: Removed '|' text from typing-cursor span to eliminate double cursor -->
                 <h1 class="hero-title reveal" style="--delay: 0.1s">
@@ -85,9 +89,10 @@
                     From invoicing to GST compliance — all in one powerful desktop app.
                 </p>
                 <div class="hero-actions reveal" style="--delay: 0.3s">
-                    <a href="#download" class="btn btn-primary">
+                    <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-primary" data-download-link>
                         <i class='bx bx-download'></i>
-                        <span>Download for Windows</span>
+                        <span>Download <span data-release-version>Checking latest version...</span></span>
                     </a>
                     <a href="https://github.com/JV-Vigneesh/JVS-FinTech" target="_blank" rel="noopener noreferrer"
                         class="btn btn-secondary">
@@ -114,7 +119,7 @@
             <div class="stats-container">
                 <div class="stat-item reveal" style="--delay: 0s">
                     <span class="stat-number">
-                        <span class="counter" data-target="12" data-suffix=".0">0</span>
+                        <span data-release-version>Checking latest version...</span>
                     </span>
                     <span class="stat-label">Latest Version</span>
                 </div>
@@ -135,6 +140,53 @@
                         <span class="counter" data-target="100" data-suffix="%">0</span>
                     </span>
                     <span class="stat-label">Offline Capable</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY CHOOSE SECTION
+         ============================================ -->
+    <section class="why-choose" id="why-choose">
+        <div class="container">
+            <div class="why-header reveal">
+                <span class="section-tag">Why JVS FinTech</span>
+                <h2 class="section-title">Accounting software that stays in your control.</h2>
+                <p class="section-subtitle">Built for businesses that want powerful accounting tools without giving up
+                    data ownership, offline reliability, or simple day-to-day speed.</p>
+            </div>
+
+            <div class="comparison-grid reveal">
+                <div class="comparison-card highlighted">
+                    <span class="comparison-label">JVS FinTech</span>
+                    <h3>Local-first desktop accounting</h3>
+                    <ul>
+                        <li><i class='bx bx-check'></i> Works without internet</li>
+                        <li><i class='bx bx-check'></i> Company-wise SQLite database files</li>
+                        <li><i class='bx bx-check'></i> GST reports, invoices, inventory, and exports</li>
+                        <li><i class='bx bx-check'></i> No signup required for local use</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <span class="comparison-label">Cloud tools</span>
+                    <h3>Convenient, but internet-dependent</h3>
+                    <ul>
+                        <li><i class='bx bx-wifi'></i> Usually needs continuous connectivity</li>
+                        <li><i class='bx bx-credit-card'></i> Often subscription-based</li>
+                        <li><i class='bx bx-cloud'></i> Business data lives on third-party servers</li>
+                        <li><i class='bx bx-lock-open-alt'></i> Access depends on account availability</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <span class="comparison-label">Spreadsheets</span>
+                    <h3>Flexible, but fragile at scale</h3>
+                    <ul>
+                        <li><i class='bx bx-error-circle'></i> Easy to break formulas</li>
+                        <li><i class='bx bx-time-five'></i> Manual GST and report preparation</li>
+                        <li><i class='bx bx-spreadsheet'></i> Limited audit trail</li>
+                        <li><i class='bx bx-data'></i> Harder to manage multiple companies cleanly</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -211,6 +263,47 @@
                     <h3 class="feature-title">Audit & Security</h3>
                     <p class="feature-description">SHA-256 cryptographic audit chain, data integrity checker, database
                         backup/restore, and EULA enforcement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TRUST SECTION
+         ============================================ -->
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust-header reveal">
+                <span class="section-tag">Trust & Setup</span>
+                <h2 class="section-title">Clear, private, and easy to install.</h2>
+                <p class="section-subtitle">Practical details before download: where data lives, how backups work,
+                    what system it supports, and where users can send feedback.</p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-card reveal" style="--delay: 0s">
+                    <i class='bx bx-lock-alt'></i>
+                    <h3>Data privacy</h3>
+                    <p>Your accounting data is stored locally in SQLite database files. Daily accounting work does not
+                        require a cloud account or a remote server.</p>
+                </div>
+                <div class="trust-card reveal" style="--delay: 0.1s">
+                    <i class='bx bx-folder'></i>
+                    <h3>Simple backups</h3>
+                    <p>Company databases are isolated, making backup and restore easier to understand: copy the company
+                        database or use the built-in backup tools.</p>
+                </div>
+                <div class="trust-card reveal" style="--delay: 0.2s">
+                    <i class='bx bxl-windows'></i>
+                    <h3>System requirements</h3>
+                    <p>Recommended for Windows 7/10/11 desktop systems. The release page always carries the newest
+                        installer and release notes.</p>
+                </div>
+                <div class="trust-card reveal" style="--delay: 0.3s">
+                    <i class='bx bx-support'></i>
+                    <h3>Feedback loop</h3>
+                    <p>Users can report bugs or request improvements through the feedback form, helping prioritize the
+                        next releases.</p>
                 </div>
             </div>
         </div>
@@ -350,24 +443,70 @@
                 <div class="carousel-track" id="carouselTrack">
                     <div class="carousel-slide active-slide">
                         <div class="screenshot-wrapper">
-                            <img src="assets/images/hero-dashboard.png" alt="JVS FinTech Dashboard" loading="lazy">
+                            <img src="assets/images/Dashboard.png" alt="JVS FinTech Dashboard" loading="lazy">
                         </div>
                         <p class="screenshot-caption">Dashboard — Financial Overview with real-time KPIs and trend
                             charts</p>
                     </div>
                     <div class="carousel-slide">
-                        <div class="screenshot-wrapper placeholder-wrapper">
-                            <i class='bx bx-receipt'></i>
-                            <h3>Invoicing Engine</h3>
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/Sales.png" alt="JVS FinTech Sales Invoice Screen" loading="lazy">
                         </div>
                         <p class="screenshot-caption">Invoicing — Seamless double-entry billing with auto GST</p>
                     </div>
                     <div class="carousel-slide">
-                        <div class="screenshot-wrapper placeholder-wrapper">
-                            <i class='bx bx-bar-chart-alt-2'></i>
-                            <h3>Dynamic Reports</h3>
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/Balance Sheet.png" alt="JVS FinTech Balance Sheet Report"
+                                loading="lazy">
                         </div>
                         <p class="screenshot-caption">Reports — Dynamic Balance Sheet & P&L</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/GST Returns.png" alt="JVS FinTech GST Returns Dashboard"
+                                loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">GST Returns — Compliance summaries and export-ready return data
+                        </p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/GSTR-2B Reconciliation.png"
+                                alt="JVS FinTech GSTR-2B Reconciliation Screen" loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">GSTR-2B Reconciliation — Match portal data against local purchase
+                            books</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/Bank Reconciliation.png"
+                                alt="JVS FinTech Bank Reconciliation Screen" loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">Bank Reconciliation — Compare bank statements with cash and bank
+                            ledgers</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/Inventory Stock Journal.png"
+                                alt="JVS FinTech Inventory Stock Journal Screen" loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">Inventory — Stock journal entries for adjustments and movement
+                            tracking</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/Ledgers.png" alt="JVS FinTech Ledgers Management Screen"
+                                loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">Ledgers — Manage parties, accounts, tax ledgers, and balances</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="screenshot-wrapper">
+                            <img src="assets/images/Account Groups.png"
+                                alt="JVS FinTech Account Groups Management Screen" loading="lazy">
+                        </div>
+                        <p class="screenshot-caption">Account Groups — Structured chart of accounts for clean reporting
+                        </p>
                     </div>
                 </div>
                 <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous slide"><i
@@ -375,9 +514,16 @@
                 <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next slide"><i
                         class='bx bx-chevron-right'></i></button>
                 <div class="carousel-dots" id="carouselDots">
-                    <span class="dot active" data-index="0"></span>
-                    <span class="dot" data-index="1"></span>
-                    <span class="dot" data-index="2"></span>
+                    <button class="dot active" data-index="0" aria-label="Show dashboard preview"
+                        aria-current="true"></button>
+                    <button class="dot" data-index="1" aria-label="Show invoicing preview"></button>
+                    <button class="dot" data-index="2" aria-label="Show reports preview"></button>
+                    <button class="dot" data-index="3" aria-label="Show GST returns preview"></button>
+                    <button class="dot" data-index="4" aria-label="Show GSTR-2B reconciliation preview"></button>
+                    <button class="dot" data-index="5" aria-label="Show bank reconciliation preview"></button>
+                    <button class="dot" data-index="6" aria-label="Show inventory preview"></button>
+                    <button class="dot" data-index="7" aria-label="Show ledgers preview"></button>
+                    <button class="dot" data-index="8" aria-label="Show account groups preview"></button>
                 </div>
             </div>
         </div>
@@ -461,7 +607,7 @@
             <div class="timeline">
                 <div class="timeline-item reveal" style="--delay: 0s">
                     <div class="timeline-card">
-                        <span class="timeline-date">Phase 1</span>
+                        <span class="timeline-date">Researching</span>
                         <h3 class="timeline-title">AI & NLP Business Intelligence</h3>
                         <p class="timeline-description">Chat with your financial data using natural language.
                             Text-to-SQL queries powered by a local LLM — 100% data privacy.</p>
@@ -470,7 +616,7 @@
 
                 <div class="timeline-item reveal" style="--delay: 0.1s">
                     <div class="timeline-card">
-                        <span class="timeline-date">Phase 2</span>
+                        <span class="timeline-date">Planned</span>
                         <h3 class="timeline-title">Predictive Analytics</h3>
                         <p class="timeline-description">Cash flow forecasting, anomaly detection, and customer risk
                             scoring using time-series ML models.</p>
@@ -479,7 +625,7 @@
 
                 <div class="timeline-item reveal" style="--delay: 0.2s">
                     <div class="timeline-card">
-                        <span class="timeline-date">Phase 3</span>
+                        <span class="timeline-date">Planned</span>
                         <h3 class="timeline-title">Enterprise Scaling</h3>
                         <p class="timeline-description">Cloud sync with local-first architecture, multi-user real-time
                             collaboration, advanced inventory with godowns, batch tracking, and BOM support.</p>
@@ -488,7 +634,7 @@
 
                 <div class="timeline-item reveal" style="--delay: 0.3s">
                     <div class="timeline-card">
-                        <span class="timeline-date">Phase 4</span>
+                        <span class="timeline-date">Planned</span>
                         <h3 class="timeline-title">Live Banking & Auto-Reconciliation</h3>
                         <p class="timeline-description">Integrate bank feed APIs to auto-import statements and match
                             transactions to invoices automatically.</p>
@@ -497,7 +643,7 @@
 
                 <div class="timeline-item reveal" style="--delay: 0.4s">
                     <div class="timeline-card">
-                        <span class="timeline-date">Phase 5</span>
+                        <span class="timeline-date">Planned</span>
                         <h3 class="timeline-title">Advanced Compliance & Payroll</h3>
                         <p class="timeline-description">Direct E-Invoice & E-Way Bill API, TDS/TCS tracking, full HRMS
                             payroll
@@ -507,7 +653,7 @@
 
                 <div class="timeline-item reveal" style="--delay: 0.5s">
                     <div class="timeline-card">
-                        <span class="timeline-date">Phase 6</span>
+                        <span class="timeline-date">Planned</span>
                         <h3 class="timeline-title">Performance & Extensibility</h3>
                         <p class="timeline-description">Dynamic multi-threading via Web Workers for massive datasets,
                             custom metadata fields via JSON columns, and a plugin-ready architecture.</p>
@@ -557,12 +703,14 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>Is there a monthly subscription fee?</span>
+                        <span>Is JVS FinTech free to use?</span>
                         <i class='bx bx-plus'></i>
                     </button>
                     <div class="faq-answer">
-                        <p>No, JVS FinTech is currently free forever for early adopters. We do not charge any monthly
-                            subscriptions. You own the software and the data.</p>
+                        <p>Yes, current builds are free for early adopters. While premium tiers or commercial licensing
+                            plans may be introduced in the future for advanced features, the core priority will always
+                            remain local data ownership—meaning your data stays private and accessible on your own
+                            machine.</p>
                     </div>
                 </div>
 
@@ -583,8 +731,61 @@
                         <i class='bx bx-plus'></i>
                     </button>
                     <div class="faq-answer">
-                        <p>We welcome your feedback! You can report bugs, request new features, or submit feedback using our official <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform" target="_blank" rel="noopener noreferrer">Bug & Known Issues Report Form</a>.</p>
+                        <p>We welcome your feedback! You can report bugs, request new features, or submit feedback using
+                            our official <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform"
+                                target="_blank" rel="noopener noreferrer">Bug & Known Issues Report Form</a>.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SUPPORT SECTION
+         ============================================ -->
+    <section class="support" id="support">
+        <div class="container">
+            <div class="support-header reveal">
+                <span class="section-tag">Support Development</span>
+                <h2 class="section-title">Help shape future releases.</h2>
+                <p class="section-subtitle">JVS FinTech is currently available for early adopters. If you want to
+                    support development, sponsor a feature, or ask about future commercial licensing, use the options
+                    below.</p>
+            </div>
+
+            <div class="support-grid">
+                <div class="support-card reveal" style="--delay: 0s">
+                    <i class='bx bx-donate-heart'></i>
+                    <h3>Donation & Sponsors</h3>
+                    <p>Sponsor JVS FinTech on GitHub Sponsors or Buy Me a Coffee to support continuous development and
+                        help prioritize new features.</p>
+                    <div class="support-actions">
+                        <a href="https://github.com/sponsors/JV-Vigneesh" target="_blank" rel="noopener noreferrer"
+                            class="support-link">
+                            <i class='bx bxl-github'></i> GitHub Sponsors
+                        </a>
+                        <a href="https://buymeacoffee.com/vigneeshjv" target="_blank" rel="noopener noreferrer"
+                            class="support-link bmac">
+                            <i class='bx bx-coffee'></i> Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                <div class="support-card reveal" style="--delay: 0.1s">
+                    <i class='bx bx-bulb'></i>
+                    <h3>Sponsor a Feature</h3>
+                    <p>Businesses can help prioritize modules like payroll, e-way bills, live banking, or advanced
+                        inventory.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform"
+                        target="_blank" rel="noopener noreferrer" class="support-link">Contact / Request</a>
+                </div>
+                <div class="support-card reveal" style="--delay: 0.2s">
+                    <i class='bx bx-briefcase'></i>
+                    <h3>Future Licensing</h3>
+                    <p>Commercial plans and enterprise licensing will be introduced for managed cloud services and
+                        advanced modules.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform"
+                        target="_blank" rel="noopener noreferrer" class="support-link">Inquire about Enterprise</a>
                 </div>
             </div>
         </div>
@@ -596,26 +797,43 @@
     <section class="download-cta" id="download">
         <div class="container">
             <h2 class="section-title">Ready to take control of your finances?</h2>
-            <p class="section-subtitle">Download JVS FinTech for free and start managing your business accounting
-                today. No cloud dependency. No subscriptions. Your data stays on your machine.</p>
+            <p class="section-subtitle">Download the current public build and start managing your business accounting
+                today. No cloud dependency. Future pricing may change, but your data stays on your machine.</p>
             <div class="download-actions">
                 <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest" target="_blank"
-                    rel="noopener noreferrer" class="btn-download">
-                    <span><i class='bx bx-download'></i> Download Latest Release</span>
+                    rel="noopener noreferrer" class="btn-download" data-download-link>
+                    <span><i class='bx bx-download'></i> Download <span data-release-version>Checking latest
+                            version...</span></span>
                 </a>
                 <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases" target="_blank" rel="noopener noreferrer"
                     class="btn-github">
                     <i class='bx bx-history'></i> All Releases
                 </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform" target="_blank" rel="noopener noreferrer"
-                    class="btn-bug">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform"
+                    target="_blank" rel="noopener noreferrer" class="btn-bug">
                     <i class='bx bx-bug'></i> Report Bug / Feedback
+                </a>
+                <a href="#support" class="btn-support">
+                    <i class='bx bx-donate-heart'></i> Support Development
                 </a>
             </div>
             <div class="version-badge">
-                <i class='bx bxl-windows'></i> Windows 10/11 &nbsp;·&nbsp;
-                <i class='bx bx-check-circle'></i> Free Forever &nbsp;·&nbsp;
+                <i class='bx bx-purchase-tag-alt'></i> Latest: <span data-release-version>Checking latest
+                    version...</span> &nbsp;·&nbsp;
+                <i class='bx bxl-windows'></i> Windows 7/10/11 &nbsp;·&nbsp;
+                <i class='bx bx-check-circle'></i> Free for Early Adopters &nbsp;·&nbsp;
                 <i class='bx bx-lock-alt'></i> No Signup Required
+            </div>
+            <div class="release-card" id="release-card">
+                <div>
+                    <span class="release-kicker">Latest GitHub Release</span>
+                    <h3 id="release-title">Checking latest release...</h3>
+                    <p id="release-meta">Release details load automatically from GitHub when available.</p>
+                </div>
+                <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest" target="_blank"
+                    rel="noopener noreferrer" class="release-link" data-release-link>
+                    View release notes <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
         </div>
     </section>
@@ -632,8 +850,8 @@
                         Vigneesh</a>.</span>
             </div>
             <div class="footer-links">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform" target="_blank" rel="noopener noreferrer"
-                    aria-label="Report Bug" title="Report a Bug">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform"
+                    target="_blank" rel="noopener noreferrer" aria-label="Report Bug" title="Report a Bug">
                     <i class='bx bx-bug'></i>
                 </a>
                 <a href="https://github.com/JV-Vigneesh/JVS-FinTech" target="_blank" rel="noopener noreferrer"
@@ -650,6 +868,27 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "JVS FinTech",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Windows 7, Windows 10, Windows 11",
+            "softwareVersion": "12.0.4",
+            "description": "Offline-first double-entry accounting software for Indian businesses with invoicing, GST compliance, reports, inventory, and local SQLite storage.",
+            "downloadUrl": "https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest",
+            "author": {
+                "@type": "Person",
+                "name": "JV Vigneesh"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+            }
+        }
+    </script>
 </body>
 
 </html>

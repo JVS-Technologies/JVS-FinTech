@@ -9,6 +9,81 @@
  * - Removed backdrop-filter dependency from JS
  */
 document.addEventListener('DOMContentLoaded', () => {
+  const RELEASE_API_URL = 'https://api.github.com/repos/JV-Vigneesh/JVS-FinTech/releases/latest';
+  const FALLBACK_VERSION = 'Server Unreachable';
+  const FALLBACK_RELEASE_URL = 'https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest';
+
+  const cleanVersion = (value) => (value || FALLBACK_VERSION).replace(/^v/i, '');
+
+  const updateReleaseUi = (release) => {
+    const version = cleanVersion(release?.tag_name || release?.name);
+    const releaseUrl = release?.html_url || FALLBACK_RELEASE_URL;
+    const installerAsset = release?.assets?.find((asset) =>
+      /\.(exe|msi|zip)$/i.test(asset.name || '')
+    );
+    const downloadUrl = installerAsset?.browser_download_url || releaseUrl;
+    const releaseName = release?.name && cleanVersion(release.name) !== version
+      ? release.name
+      : `JVS FinTech ${version}`;
+    const publishedDate = release?.published_at
+      ? new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(release.published_at))
+      : null;
+
+    document.querySelectorAll('[data-release-version]').forEach((el) => {
+      el.textContent = version;
+    });
+
+    document.querySelectorAll('[data-download-link]').forEach((link) => {
+      link.href = downloadUrl;
+    });
+
+    document.querySelectorAll('[data-release-link]').forEach((link) => {
+      link.href = releaseUrl;
+    });
+
+    const releaseTitle = document.getElementById('release-title');
+    if (releaseTitle) {
+      releaseTitle.textContent = releaseName;
+    }
+
+    const releaseMeta = document.getElementById('release-meta');
+    if (releaseMeta) {
+      const assetText = installerAsset ? `Installer: ${installerAsset.name}` : 'Open GitHub to choose a download asset.';
+      releaseMeta.textContent = publishedDate
+        ? `Published ${publishedDate}. ${assetText}`
+        : 'Release details load automatically from GitHub when available.';
+    }
+
+    const softwareSchema = document.querySelector('script[type="application/ld+json"]');
+    if (softwareSchema) {
+      try {
+        const schema = JSON.parse(softwareSchema.textContent);
+        schema.softwareVersion = version;
+        schema.downloadUrl = downloadUrl;
+        softwareSchema.textContent = JSON.stringify(schema);
+      } catch (error) {
+        // Keep the static schema fallback if parsing ever fails.
+      }
+    }
+  };
+
+  const loadLatestRelease = async () => {
+    updateReleaseUi({ tag_name: FALLBACK_VERSION, html_url: FALLBACK_RELEASE_URL });
+
+    try {
+      const response = await fetch(RELEASE_API_URL, {
+        headers: { Accept: 'application/vnd.github+json' },
+      });
+
+      if (!response.ok) return;
+      const release = await response.json();
+      updateReleaseUi(release);
+    } catch (error) {
+      // Offline or rate-limited visitors still see the fallback version.
+    }
+  };
+
+  loadLatestRelease();
 
   /* ============================================================
    * 1. Scroll-Triggered Reveal Animations
@@ -67,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       menuToggle.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(navMenu.classList.contains('active')));
     });
 
     // Close menu when any nav link is clicked
@@ -74,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -277,6 +354,9 @@ document.addEventListener('DOMContentLoaded', () => {
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
     const answer = item.querySelector('.faq-answer');
+    if (!question || !answer) return;
+
+    question.setAttribute('aria-expanded', 'false');
 
     question.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
@@ -285,12 +365,15 @@ document.addEventListener('DOMContentLoaded', () => {
       faqItems.forEach(i => {
         i.classList.remove('active');
         const ans = i.querySelector('.faq-answer');
-        ans.style.maxHeight = null;
+        const btn = i.querySelector('.faq-question');
+        if (ans) ans.style.maxHeight = null;
+        if (btn) btn.setAttribute('aria-expanded', 'false');
       });
 
       if (!isActive) {
         item.classList.add('active');
         answer.style.maxHeight = answer.scrollHeight + 'px';
+        question.setAttribute('aria-expanded', 'true');
       }
     });
   });
@@ -315,8 +398,10 @@ document.addEventListener('DOMContentLoaded', () => {
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
       dots.forEach(dot => dot.classList.remove('active'));
+      dots.forEach(dot => dot.removeAttribute('aria-current'));
       if (dots[currentSlide]) {
         dots[currentSlide].classList.add('active');
+        dots[currentSlide].setAttribute('aria-current', 'true');
       }
     };
 
