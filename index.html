@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="JVS FinTech — Professional offline-first double-entry accounting software for modern businesses. Invoicing, GST compliance, financial reports, and inventory management.">
+    <meta name="keywords"
+        content="accounting software, GST, invoicing, double-entry, offline, Electron, desktop app, inventory, financial reports">
+    <meta name="author" content="JV Vigneesh">
+    <meta property="og:title" content="JVS FinTech — Smart Accounting Software">
+    <meta property="og:description"
+        content="Professional offline-first accounting software with double-entry bookkeeping, GST compliance, and dynamic reporting.">
+    <meta property="og:image" content="assets/images/hero-dashboard.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>JVS FinTech — Smart Accounting Software</title>
+</head>
+
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#hero" class="logo">
+                    <span class="logo-icon">JVS</span>
+                    <span class="logo-text">FinTech</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                    <li><a href="#tech-stack" class="nav-link">Stack</a></li>
+                    <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                    <li><a href="#download" class="nav-link btn-nav-cta">
+                            <i class='bx bx-download'></i> Download
+                        </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-text">
+                <div class="hero-badge reveal">
+                    <span class="badge-dot"></span>
+                    Version 12.0 — Now Available
+                </div>
+                <h1 class="hero-title reveal" style="--delay: 0.1s">
+                    <span class="typing-text"></span><span class="typing-cursor">|</span>
+                </h1>
+                <p class="hero-subtitle reveal" style="--delay: 0.2s">
+                    Professional, offline-first double-entry accounting software built for modern Indian businesses.
+                    From invoicing to GST compliance — all in one powerful desktop app.
+                </p>
+                <div class="hero-actions reveal" style="--delay: 0.3s">
+                    <a href="#download" class="btn btn-primary">
+                        <i class='bx bx-download'></i>
+                        Download for Windows
+                    </a>
+                    <a href="https://github.com/JV-Vigneesh/JVS-FinTech" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary">
+                        <i class='bx bxl-github'></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal fade-in-right" style="--delay: 0.3s">
+                <div class="hero-image-wrapper">
+                    <img src="assets/images/hero-dashboard.png" alt="JVS FinTech Dashboard Screenshot"
+                        class="hero-image" loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         STATS BAR
+         ============================================ -->
+    <section class="stats-bar" id="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item reveal" style="--delay: 0s">
+                    <span class="stat-number">
+                        <span class="counter" data-target="12" data-suffix=".0">0</span>
+                    </span>
+                    <span class="stat-label">Latest Version</span>
+                </div>
+                <div class="stat-item reveal" style="--delay: 0.1s">
+                    <span class="stat-number">
+                        <span class="counter" data-target="50" data-suffix="+">0</span>
+                    </span>
+                    <span class="stat-label">Features</span>
+                </div>
+                <div class="stat-item reveal" style="--delay: 0.2s">
+                    <span class="stat-number">
+                        <span class="counter" data-target="6">0</span>
+                    </span>
+                    <span class="stat-label">Report Types</span>
+                </div>
+                <div class="stat-item reveal" style="--delay: 0.3s">
+                    <span class="stat-number">
+                        <span class="counter" data-target="100" data-suffix="%">0</span>
+                    </span>
+                    <span class="stat-label">Offline Capable</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FEATURES SECTION
+         ============================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-header reveal">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Everything your business needs.</h2>
+                <p class="section-subtitle">From daily bookkeeping to annual GST filings — a complete accounting suite
+                    that works offline.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card reveal" style="--delay: 0s">
+                    <div class="feature-icon">
+                        <i class='bx bxs-dashboard'></i>
+                    </div>
+                    <h3 class="feature-title">Financial Dashboard</h3>
+                    <p class="feature-description">Real-time KPIs, interactive trend charts, low stock alerts, and a
+                        live activity feed — all at a glance.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card reveal" style="--delay: 0.1s">
+                    <div class="feature-icon">
+                        <i class='bx bx-receipt'></i>
+                    </div>
+                    <h3 class="feature-title">Invoicing & Transactions</h3>
+                    <p class="feature-description">Sales invoices, purchase bills, quotations, delivery challans, and
+                        all double-entry vouchers with auto GST computation.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card reveal" style="--delay: 0.2s">
+                    <div class="feature-icon">
+                        <i class='bx bx-bar-chart-alt-2'></i>
+                    </div>
+                    <h3 class="feature-title">Dynamic Reports</h3>
+                    <p class="feature-description">Balance Sheet, P&L, Trial Balance, Day Book, Cash & Bank Books —
+                        with one-click PDF & Excel export.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card reveal" style="--delay: 0s">
+                    <div class="feature-icon">
+                        <i class='bx bx-check-double'></i>
+                    </div>
+                    <h3 class="feature-title">GST Compliance Suite</h3>
+                    <p class="feature-description">GSTR-1 & GSTR-3B JSON export, E-Invoice generation, GSTR-2B
+                        reconciliation, HSN summaries, and anomaly scoring.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card reveal" style="--delay: 0.1s">
+                    <div class="feature-icon">
+                        <i class='bx bx-package'></i>
+                    </div>
+                    <h3 class="feature-title">Inventory Management</h3>
+                    <p class="feature-description">Stock groups, units of measure, batch & expiry tracking, auto
+                        delivery challan generation on sales.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card reveal" style="--delay: 0.2s">
+                    <div class="feature-icon">
+                        <i class='bx bx-shield-quarter'></i>
+                    </div>
+                    <h3 class="feature-title">Audit & Security</h3>
+                    <p class="feature-description">SHA-256 cryptographic audit chain, data integrity checker, database
+                        backup/restore, and EULA enforcement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ARCHITECTURE SECTION
+         ============================================ -->
+    <section class="architecture" id="architecture">
+        <div class="container">
+            <div class="architecture-text reveal fade-in-left">
+                <span class="section-tag">Architecture</span>
+                <h2 class="section-title">Built for reliability.</h2>
+                <p>A robust two-tier database architecture that keeps your data isolated, secure, and blazing fast.
+                    WebAssembly-based SQLite (sql.js) provides rapid local querying, while each company gets its own
+                    fully isolated database file.</p>
+                <ul>
+                    <li>Offline-first local storage — no internet required</li>
+                    <li>Two-tier DB isolation (master.db + per-company DBs)</li>
+                    <li>Double-entry posting engine (GAAP compliant)</li>
+                    <li>Vector-fidelity PDF printing via Playwright</li>
+                    <li>SHA-256 cryptographic audit chain</li>
+                </ul>
+            </div>
+
+            <div class="reveal fade-in-right">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="terminal-dot"></span>
+                            <span class="terminal-dot"></span>
+                            <span class="terminal-dot"></span>
+                        </div>
+                        <span class="terminal-title">database-architecture.sql</span>
+                    </div>
+                    <div class="terminal-body">
+                        <pre><code><span class="comment">-- Master Database (Global)</span>
+<span class="keyword">CREATE TABLE</span> <span class="function">master.db</span> (
+  companies     <span class="type">TABLE</span>,
+  app_settings  <span class="type">TABLE</span>
+);
+
+<span class="comment">-- Per-Company Isolation</span>
+<span class="keyword">CREATE DATABASE</span> <span class="function">{companyId}.db</span>
+  <span class="keyword">LOCATION</span> <span class="string">'Documents/JVS FinTech/{Name}/'</span>
+
+  <span class="comment">-- Accounts & Ledgers</span>
+  account_groups   <span class="type">→ Assets, Liabilities</span>
+  ledgers          <span class="type">→ Parties, Banks, Tax</span>
+
+  <span class="comment">-- Transactions</span>
+  sales_invoices   <span class="type">→ Auto GST calc</span>
+  purchase_bills   <span class="type">→ ITC tracking</span>
+  vouchers         <span class="type">→ Payment, Receipt</span>
+
+  <span class="comment">-- Inventory</span>
+  stock_items      <span class="type">→ Batch, Expiry</span>
+  stock_journals   <span class="type">→ Adjustments</span>
+
+  <span class="comment">-- Audit</span>
+  audit_log        <span class="type">→ SHA-256 chained</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TECH STACK SECTION
+         ============================================ -->
+    <section class="tech-stack" id="tech-stack">
+        <div class="container">
+            <div class="tech-stack-header reveal">
+                <span class="section-tag">Technology</span>
+                <h2 class="section-title">Modern tech, proven tools.</h2>
+                <p class="section-subtitle">Built with a carefully chosen stack optimized for performance, developer
+                    experience, and reliability.</p>
+            </div>
+
+            <div class="tech-grid reveal">
+                <div class="tech-badge">
+                    <i class='bx bxl-react'></i>
+                    <span>React 19</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bxl-typescript'></i>
+                    <span>TypeScript 5.8</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-bolt-circle'></i>
+                    <span>Vite 8</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-window-alt'></i>
+                    <span>Electron 22</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-data'></i>
+                    <span>SQLite / sql.js</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bxl-tailwind-css'></i>
+                    <span>Tailwind CSS</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-line-chart'></i>
+                    <span>Recharts</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-file-blank'></i>
+                    <span>Playwright</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-spreadsheet'></i>
+                    <span>ExcelJS</span>
+                </div>
+                <div class="tech-badge">
+                    <i class='bx bx-palette'></i>
+                    <span>Radix UI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SCREENSHOT SECTION
+         ============================================ -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="screenshots-header reveal">
+                <span class="section-tag">Preview</span>
+                <h2 class="section-title">See it in action.</h2>
+                <p class="section-subtitle">A clean, responsive dark interface designed for speed and productivity.</p>
+            </div>
+
+            <div class="screenshot-showcase reveal">
+                <div class="screenshot-wrapper">
+                    <img src="assets/images/hero-dashboard.png" alt="JVS FinTech Application Interface" loading="lazy">
+                </div>
+                <p class="screenshot-caption">JVS FinTech Dashboard — Financial Overview with real-time KPIs and
+                    trend charts</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ROADMAP SECTION
+         ============================================ -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <div class="roadmap-header reveal">
+                <span class="section-tag">Roadmap</span>
+                <h2 class="section-title">What's coming next.</h2>
+                <p class="section-subtitle">Ambitious plans to evolve JVS FinTech into a full enterprise-grade
+                    accounting platform.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal" style="--delay: 0s">
+                    <div class="timeline-card">
+                        <span class="timeline-date">Phase 1</span>
+                        <h3 class="timeline-title">AI & NLP Business Intelligence</h3>
+                        <p class="timeline-description">Chat with your financial data using natural language.
+                            Text-to-SQL queries powered by a local LLM — 100% data privacy.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" style="--delay: 0.1s">
+                    <div class="timeline-card">
+                        <span class="timeline-date">Phase 2</span>
+                        <h3 class="timeline-title">Predictive Analytics</h3>
+                        <p class="timeline-description">Cash flow forecasting, anomaly detection, and customer risk
+                            scoring using time-series ML models.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" style="--delay: 0.2s">
+                    <div class="timeline-card">
+                        <span class="timeline-date">Phase 3</span>
+                        <h3 class="timeline-title">Cloud Sync & Multi-User</h3>
+                        <p class="timeline-description">Local-first sync architecture enabling real-time collaboration
+                            for accounting teams without file conflicts.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" style="--delay: 0.3s">
+                    <div class="timeline-card">
+                        <span class="timeline-date">Phase 4</span>
+                        <h3 class="timeline-title">Live Banking & Auto-Reconciliation</h3>
+                        <p class="timeline-description">Integrate bank feed APIs to auto-import statements and match
+                            transactions to invoices automatically.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal" style="--delay: 0.4s">
+                    <div class="timeline-card">
+                        <span class="timeline-date">Phase 5</span>
+                        <h3 class="timeline-title">Payroll, E-Invoicing & Cost Centers</h3>
+                        <p class="timeline-description">Full HRMS payroll, direct government e-invoicing API, e-way
+                            bills, TDS/TCS, and project-wise cost allocation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         DOWNLOAD CTA SECTION
+         ============================================ -->
+    <section class="download-cta" id="download">
+        <div class="container">
+            <h2 class="section-title">Ready to take control of your finances?</h2>
+            <p class="section-subtitle">Download JVS FinTech for free and start managing your business accounting
+                today. No cloud dependency. No subscriptions. Your data stays on your machine.</p>
+            <div class="download-actions">
+                <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest" target="_blank"
+                    rel="noopener noreferrer" class="btn-download">
+                    <span><i class='bx bx-download'></i> Download Latest Release</span>
+                </a>
+                <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases" target="_blank"
+                    rel="noopener noreferrer" class="btn-github">
+                    <i class='bx bx-history'></i> All Releases
+                </a>
+            </div>
+            <div class="version-badge">
+                <i class='bx bxl-windows'></i> Windows 10/11 &nbsp;·&nbsp;
+                <i class='bx bx-check-circle'></i> Free Forever &nbsp;·&nbsp;
+                <i class='bx bx-lock-alt'></i> No Signup Required
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-left">
+                <span class="footer-logo"><span class="logo-accent">JVS</span> FinTech</span>
+                <span class="footer-copyright">&copy; <span id="current-year">2026</span> JVS Tech. Built by
+                    <a href="https://vigneeshjv.github.io" target="_blank" rel="noopener noreferrer">JV
+                        Vigneesh</a>.</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/JV-Vigneesh/JVS-FinTech" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://vigneeshjv.github.io" target="_blank" rel="noopener noreferrer"
+                    aria-label="Portfolio">
+                    <i class='bx bx-globe'></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
