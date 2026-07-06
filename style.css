@@ -1403,6 +1403,29 @@ body::before {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
+.btn-bug {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  color: var(--color-white);
+  background: transparent;
+  border: 1px solid rgba(255, 165, 0, 0.25);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-bug:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 165, 0, 0.6);
+  background: rgba(255, 165, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(255, 165, 0, 0.15);
+}
+
 .version-badge {
   display: inline-flex;
   align-items: center;
@@ -2033,7 +2056,8 @@ body::before {
   }
 
   .btn-download,
-  .btn-github {
+  .btn-github,
+  .btn-bug {
     width: 100%;
     max-width: 320px;
     text-align: center;
