@@ -1,6 +1,7 @@
 # 🚀 **JVS FinTech** 💼
 
 [![Version](https://img.shields.io/badge/Version-12.0.4-success)]()
+[![Download](https://img.shields.io/github/v/release/JV-Vigneesh/JVS-FinTech?label=Download&color=ED3237&logo=windows&logoColor=white)](https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest)
 [![React](https://img.shields.io/badge/React-19.0-blue?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
@@ -9,9 +10,21 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-EULA-blue)](public/license.rtf)
 
+> 🌐 **[Visit the Product Website →](https://jv-vigneesh.github.io/JVS-FinTech/)**
+
+---
+
 **JVS FinTech** is a professional, high-performance, offline-first double-entry accounting software designed for modern businesses. Built as a hybrid application, it runs seamlessly either in a web browser using WebAssembly SQLite (`sql.js`) or as a standalone cross-platform desktop application using **Electron**.
 
 From core bookkeeping and multi-company database isolation to dynamic reporting (Balance Sheets, P&Ls, GST Reports) and high-fidelity vector PDF printing, **JVS FinTech** brings a clean, responsive, and robust accounting experience to your local desktop. 📊✨
+
+---
+
+## 📸 **Preview**
+
+<p align="center">
+  <img src="assets/images/hero-dashboard.png" alt="JVS FinTech Dashboard" width="100%" />
+</p>
 
 ---
 
@@ -114,55 +127,32 @@ From core bookkeeping and multi-company database isolation to dynamic reporting 
 
 ---
 
-## 🧑‍💻 **Installation & Setup**
+## 📥 **Download**
 
-### **Prerequisites**
-Make sure you have [Node.js](https://nodejs.org/) (v18+) and [npm](https://www.npmjs.com/) installed.
+| Platform | Download |
+| :--- | :--- |
+| **Windows (x64)** | [⬇ Latest Release](https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest) |
+| **All Versions** | [📦 Release History](https://github.com/JV-Vigneesh/JVS-FinTech/releases) |
 
-### **1. Clone & Install**
-```bash
-# Clone the repository
-git clone https://github.com/JV-Vigneesh/JVS-AccounTally.git
+---
 
-# Navigate into the project folder
-cd JVS-AccounTally
+## 🗺️ **Roadmap & Future Work**
 
-# Install project dependencies
-npm install
-```
+*   **🤖 AI/NLP Business Intelligence:** Chat with your data using natural language queries
+*   **📊 Predictive Analytics:** Cash flow forecasting and anomaly detection
+*   **📱 Multi-Platform Sync:** Cloud-assisted syncing between multiple client devices
+*   **🔗 Bank Feeds Integration:** Auto-import transaction statements from major banking systems
+*   **🚀 Automated Tax Filing:** Direct e-filing pipeline matching localized compliance guidelines
+*   **💼 Payroll & HRMS:** Employee management, pay heads, payslips, and statutory deductions
 
-### **2. Development Mode**
-
-#### **Option A: Run Web Version (Browser)**
-Starts a fast development server.
-```bash
-npm run dev
-```
-Open [http://localhost:8080](http://localhost:8080) to access the app in your browser.
-
-#### **Option B: Run Desktop Version (Electron)**
-Runs the application inside the native Electron window with direct file-system capabilities.
-```bash
-npm run electron:dev
-```
-
-### **3. Production Build & Packaging**
-
-To compile the React bundle and build the Electron desktop installer (`.exe` for Windows, executable for target OS):
-
-```bash
-# Build & package distribution binaries
-npm run dist
-```
-*   The web distribution files will be compiled under `dist/`.
-*   The packaged installers (e.g., Setup `.exe` files) will be located inside the `out/` or `dist/` directory as configured in `electron-builder.json`.
+See the full [Future Enhancements](FUTURE_ENHANCEMENTS.md) document for details.
 
 ---
 
 ## 📂 **Project Directory Structure**
 
 ```
-JVS-AccounTally/
+JVS-FinTech/
 ├── electron/                 # Electron main process, preload, and PDF rendering service
 │   ├── main.cjs              # Electron entrypoint & IPC communication
 │   ├── preload.cjs           # Secure renderer API bindings (contextBridge)
@@ -186,14 +176,6 @@ JVS-AccounTally/
 ├── package.json              # Script configurations and dependency definitions
 └── tsconfig.json             # TypeScript configuration options
 ```
-
----
-
-## 🗺️ **Roadmap & Future Work**
-
-*   **📱 Multi-Platform Sync:** Cloud-assisted syncing between multiple client devices.
-*   **🔗 Bank Feeds Integration:** Auto-import transaction statements from major banking systems.
-*   **🚀 Automated Tax Filing:** Direct e-filing pipeline matching localized compliance guidelines.
 
 ---
 
