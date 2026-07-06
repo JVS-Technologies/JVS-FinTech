@@ -1,16 +1,24 @@
 # 🚀 **JVS FinTech** 💼
 
+<p align="left">
+  <a href="https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest">
+    <img src="https://img.shields.io/badge/Download-Latest_Release-ED3237?style=for-the-badge&logo=windows&logoColor=white" alt="Download Latest Release" />
+  </a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform">
+    <img src="https://img.shields.io/badge/Report_Bug-Google_Form-orange?style=for-the-badge&logo=google&logoColor=white" alt="Report Bug / Feedback" />
+  </a>
+</p>
+
 [![Version](https://img.shields.io/badge/Version-12.0.4-success)]()
-[![Download](https://img.shields.io/github/v/release/JV-Vigneesh/JVS-FinTech?label=Download&color=ED3237&logo=windows&logoColor=white)](https://github.com/JV-Vigneesh/JVS-FinTech/releases/latest)
 [![React](https://img.shields.io/badge/React-19.0-blue?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Electron](https://img.shields.io/badge/Electron-22.3-47848F?logo=electron&logoColor=white)](https://www.electronjs.org/)
 [![SQLite](https://img.shields.io/badge/SQLite-3.0-003B57?logo=sqlite&logoColor=white)](https://sqlite.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-EULA-blue)](public/license.rtf)
+[![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 
-> 🌐 **[Visit the Product Website →](https://jv-vigneesh.github.io/JVS-FinTech/)**
+> 🌐 **[Visit the Website →](https://jv-vigneesh.github.io/JVS-FinTech/)**
 
 ---
 
@@ -149,36 +157,12 @@ See the full [Future Enhancements](FUTURE_ENHANCEMENTS.md) document for details.
 
 ---
 
-## 📂 **Project Directory Structure**
+## 🐛 **Feedback & Bug Reports**
 
-```
-JVS-FinTech/
-├── electron/                 # Electron main process, preload, and PDF rendering service
-│   ├── main.cjs              # Electron entrypoint & IPC communication
-│   ├── preload.cjs           # Secure renderer API bindings (contextBridge)
-│   └── pdf-service.cjs       # Playwright integration for PDF generation
-├── src/                      # Frontend source directory
-│   ├── components/           # Common layout elements and shadcn/ui primitives
-│   ├── contexts/             # Company, Theme, and Database state contexts
-│   ├── core/                 # Relational DB initialization, schemas, and queries
-│   │   ├── database/         # SQLite schemas & operations
-│   │   └── posting-engine/   # Double-entry debit/credit ledger calculations
-│   ├── features/             # Business logic modules (inventory, transactions, vouchers)
-│   ├── hooks/                # Common stateful hooks
-│   ├── pages/                # High-level route views (Dashboard, Invoices, Reports, etc.)
-│   │   ├── masters/          # Accounting & Stock configuration dashboards
-│   │   ├── transactions/     # Accounting Voucher creation forms
-│   │   ├── reports/          # Financial report modules (Balance Sheet, P&L, GST)
-│   │   └── utilities/        # Audit Logs, Bulk Import, Data Integrity checkers
-│   ├── shared/               # Utility functions, formatting, constants
-│   └── types/                # TypeScript interfaces and type definitions
-├── index.html                # App entrypoint
-├── package.json              # Script configurations and dependency definitions
-└── tsconfig.json             # TypeScript configuration options
-```
+If you encounter any issues, bugs, or have suggestions for improvements, please submit them through our [Bug & Known Issues Report Form](https://docs.google.com/forms/d/e/1FAIpQLSf-TtOgweFKTWt3jG5VL5hPjt60G1yM-rUKN09f2genJd17KQ/viewform). We appreciate your help in making JVS FinTech better!
 
 ---
 
 ## 📜 **License**
 
-This project is licensed under the End User License Agreement (EULA) - see the [license.rtf](public/license.rtf) file for details.
+This project is licensed under a Proprietary License. All rights reserved. See the [LICENSE](LICENSE) file for details.
