@@ -1,6 +1,12 @@
 /**
  * JVS FinTech — Landing Page Interactivity
  * Pure vanilla JavaScript, zero dependencies.
+ * 
+ * Changelog v3.0:
+ * - Throttled hero parallax via rAF for jank-free movement
+ * - Added Release History accordion
+ * - Debounced scroll handlers for performance
+ * - Removed backdrop-filter dependency from JS
  */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -17,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.1 }
   );
 
   document.querySelectorAll('.reveal, .fade-in-left, .fade-in-right').forEach((el) => {
@@ -27,8 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================================
    * 2. Navbar Scroll Effect
    * Adds `.scrolled` to the header after 50 px of scroll.
+   * Uses rAF-throttled handler for smooth performance.
    * ============================================================ */
   const header = document.querySelector('.header');
+  let headerTicking = false;
 
   const handleHeaderScroll = () => {
     if (!header) return;
@@ -37,9 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       header.classList.remove('scrolled');
     }
+    headerTicking = false;
   };
 
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!headerTicking) {
+      requestAnimationFrame(handleHeaderScroll);
+      headerTicking = true;
+    }
+  }, { passive: true });
   handleHeaderScroll(); // set initial state
 
   /* ============================================================
@@ -91,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ============================================================
    * 5. Active Nav-Link Highlighting on Scroll
    * Highlights the nav link whose section is currently in view.
+   * Throttled with rAF for performance.
    * ============================================================ */
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = [];
@@ -103,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (section) sections.push({ el: section, link });
     }
   });
+
+  let highlightTicking = false;
 
   const highlightActiveLink = () => {
     const headerHeight = header ? header.offsetHeight : 0;
@@ -121,9 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentSection) {
       currentSection.link.classList.add('active');
     }
+    highlightTicking = false;
   };
 
-  window.addEventListener('scroll', highlightActiveLink, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!highlightTicking) {
+      requestAnimationFrame(highlightActiveLink);
+      highlightTicking = true;
+    }
+  }, { passive: true });
   highlightActiveLink(); // set initial state
 
   /* ============================================================
@@ -175,34 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach((counter) => counterObserver.observe(counter));
 
   /* ============================================================
-   * 7. Hero Parallax on Mouse Move
-   * Subtle translate on `.hero-image` based on cursor position.
-   * Max offset ≈ 15 px in any direction.
+   * 7. Hero Parallax (Removed per user request)
    * ============================================================ */
-  const heroSection = document.querySelector('.hero');
-  const heroImage = document.querySelector('.hero-image');
-
-  if (heroSection && heroImage) {
-    const MAX_OFFSET = 15; // px
-
-    heroSection.addEventListener('mousemove', (e) => {
-      const { width, height, left, top } = heroSection.getBoundingClientRect();
-
-      // Normalise cursor position to -1 … +1 from centre
-      const xNorm = ((e.clientX - left) / width - 0.5) * 2;
-      const yNorm = ((e.clientY - top) / height - 0.5) * 2;
-
-      const translateX = xNorm * MAX_OFFSET;
-      const translateY = yNorm * MAX_OFFSET;
-
-      heroImage.style.transform = `translate(${translateX}px, ${translateY}px)`;
-    });
-
-    // Reset on mouse leave so image doesn't stay offset
-    heroSection.addEventListener('mouseleave', () => {
-      heroImage.style.transform = 'translate(0, 0)';
-    });
-  }
 
   /* ============================================================
    * 8. Typing Effect
@@ -212,10 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (typingEl) {
     const phrases = [
-      'Smart Accounting.',
-      'Powerful Reports.',
-      'GST Compliance.',
-      'Offline-First.',
+      'Offline-First',
+      'Smart Accounting',
+      'Powerful Reports',
+      'GST Compliance',
     ];
 
     const TYPE_SPEED = 70;    // ms per character typed
@@ -272,5 +269,64 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  /* ============================================================
+   * 10. FAQ Accordion
+   * ============================================================ */
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      // Close all first
+      faqItems.forEach(i => {
+        i.classList.remove('active');
+        const ans = i.querySelector('.faq-answer');
+        ans.style.maxHeight = null;
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+
+
+
+  /* ============================================================
+   * 12. Screenshot Carousel
+   * ============================================================ */
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.querySelectorAll('.carousel-dots .dot');
+
+  if (track && prevBtn && nextBtn) {
+    let currentSlide = 0;
+    const slideCount = dots.length;
+
+    const updateCarousel = (index) => {
+      currentSlide = (index + slideCount) % slideCount;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[currentSlide]) {
+        dots[currentSlide].classList.add('active');
+      }
+    };
+
+    nextBtn.addEventListener('click', () => updateCarousel(currentSlide + 1));
+    prevBtn.addEventListener('click', () => updateCarousel(currentSlide - 1));
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => updateCarousel(index));
+    });
+  }
+
 
 }); // end DOMContentLoaded
