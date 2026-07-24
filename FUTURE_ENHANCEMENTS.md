@@ -39,7 +39,6 @@ To compete directly with industry standards like Tally, Focus ERP, and Zoho Book
 - **Current State:** Basic Stock Groups and Units of Measure.
 - **Enhancement:** Add support for:
   - **Multiple Godowns / Locations:** Tracking stock across different warehouses.
-  - **Batch Tracking & Expiry Dates:** Crucial for pharmaceuticals and FMCG sectors.
   - **Bill of Materials (BOM) / Manufacturing:** Converting raw materials into finished goods via Manufacturing Journals.
   - **Serial Number Tracking:** Essential for electronics retail.
 
@@ -65,3 +64,38 @@ To compete directly with industry standards like Tally, Focus ERP, and Zoho Book
 ### 7. Extensibility & Customization
 - **Current State:** Hardcoded React components and static database schema.
 - **Enhancement:** Allow users to add dynamic custom metadata fields (e.g., "Vehicle Number" to a sales invoice) via JSON columns in the database and a dynamic UI form builder, bringing customization capabilities closer to Tally's TDL or Focus ERP's deep customizability.
+
+## Security, Multi-Instance & Document Automation
+
+### 1. Automated Invoice Emailing & Draft Workflow
+- **Overview:** Integrate direct email dispatch capabilities for sales vouchers and tax invoices.
+- **Save Modes:**
+  - **Save as Draft:** Save voucher with `DRAFT` status without locking invoice sequence numbers or posting accounting/inventory movements.
+  - **Save (Final):** Post voucher to ledger accounts and inventory stock without dispatching emails.
+  - **Save and Send Email:** Post voucher and automatically generate in-memory PDF via Electron rendering, sending it as an attachment to client's email.
+- **Settings Configuration:**
+  - SMTP configuration (Host, Port, SSL/TLS, Authentication, App Passwords).
+  - Sender Identity & auto-CC/BCC options.
+  - Dynamic subject and body email templates supporting placeholders (`{customerName}`, `{invoiceNumber}`, `{totalAmount}`, `{dueDate}`).
+  - SMTP connection tester button.
+
+### 2. Multi-Instance Concurrency Lock & View-Only Mode
+- **Overview:** Protect local database files from multi-process write conflicts while supporting multi-window/multi-monitor workflows.
+- **Single-Instance Management (`app.requestSingleInstanceLock()`):**
+  - Primary process acquires write lock for database operations.
+  - Secondary process initializes in **Read-Only Mode** (`isReadOnly = true`).
+- **View-Only Mode Features:**
+  - Sticky UI banner warning users that data modification is disabled to prevent DB corruption.
+  - Write actions (create, edit, delete, post, settings save) are disabled.
+  - Read actions (financial reports, search, dashboards, PDF export) remain 100% operational.
+
+### 3. Encrypted Database Storage & Proprietary File Extension (`.jvsdb`)
+- **Overview:** Enhance data security at rest and protect proprietary database files.
+- **Custom File Extension:**
+  - Transition from generic `.db` to `.jvsdb` (e.g. `master.jvsdb`, `{companyId}.jvsdb`).
+  - Register OS file associations so double-clicking `.jvsdb` files launches JVS FinTech.
+- **AES-256-GCM Database Encryption at Rest:**
+  - Encrypt raw SQLite binary buffers exported by `sql.js` using Node `crypto` AES-256-GCM before saving to disk in Electron main process.
+  - Decrypt binary buffers transparently upon loading into `sql.js`.
+  - Secure key storage leveraging OS Keychain via Electron `safeStorage` (Windows DPAPI) or user password derivation (PBKDF2/scrypt).
+  - Seamless automatic migration from legacy `.db` files to encrypted `.jvsdb` files.
